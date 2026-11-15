@@ -450,6 +450,7 @@ function Home({ onOpen }: { onOpen: () => void }) {
   useEffect(() => { const id = setInterval(() => setI((x) => (x + 1) % phrases.length), 3200); return () => clearInterval(id); }, []);
   return (
     <div className="home-real">
+      <div className="home-clip">
       <div className="home-frame">
         <img src={homeImg} alt="MakeMyTrip home screen" draggable={false} />
         <button className="myra-bar" onClick={onOpen} aria-label="Search with Myra">
@@ -464,6 +465,7 @@ function Home({ onOpen }: { onOpen: () => void }) {
           <span className="orb-gloss" />
           <span className="orb-label"><small>Ask</small><b>myra</b><em>✦</em></span>
         </button>
+      </div>
       </div>
     </div>
   );

@@ -858,3 +858,25 @@ button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .side-btns { flex-wrap: nowrap; }
 
 .phone { overflow: clip; }
+
+/* ===== real phones (?view=mobile or narrow screens): only the app UI, sized to the screen ===== */
+.stage.mobile { background: #F2F2F2; overflow: hidden; height: 100dvh; min-height: 0; }
+.stage.mobile .phone { width: 100vw; height: 100dvh; max-width: none; border-radius: 0; box-shadow: none; overflow: clip; }
+.stage.mobile .statusbar { display: none; }
+.stage.mobile .chat { padding-top: env(safe-area-inset-top); background: #fff; }
+.stage.mobile .composer { margin-bottom: max(14px, env(safe-area-inset-bottom)); }
+.stage.mobile .splash-x { top: calc(4px + env(safe-area-inset-top)); }
+/* home: drop the screenshot's own status bar (top 170px of 2622) and fit the rest to the screen */
+.stage.mobile .home-real { display: flex; justify-content: center; align-items: flex-start; background: #F2F2F2; padding-top: env(safe-area-inset-top); }
+.stage.mobile .home-clip { --w: min(100vw, calc((100dvh - env(safe-area-inset-top)) * 1206 / 2452)); width: var(--w); height: calc(var(--w) * 2452 / 1206); overflow: hidden; position: relative; }
+.stage.mobile .home-frame { width: var(--w); margin-top: calc(var(--w) * -170 / 1206); }
+.home-clip { width: 100%; height: 100%; }
+/* live Myra entry points scale with the home screenshot (container units: 1cqw = 1% of its width; designed at 390px) */
+.home-frame { container-type: inline-size; }
+.mb-line { font-size: 3.85cqw; }
+.myra-bar { gap: 3.1cqw; padding: 0 3.1cqw 0 4.6cqw; border-radius: 5.1cqw; }
+.mb-spark { width: 5.6cqw; height: 5.6cqw; }
+.mb-mic { width: 6.7cqw; height: 6.7cqw; }
+.orb-label small { font-size: 2.8cqw; }
+.orb-label b { font-size: 4.35cqw; }
+.orb-label em { font-size: 2.6cqw; right: 2.3cqw; top: 5.4cqw; }
